@@ -7,19 +7,19 @@ type Props = {
   profile: Profile;
 };
 
-const maleColor = 'border-[#17B4CE]';
-const femaleColor = 'border-[#FC8181]';
+const maleColor = 'bg-[#9FD5EB]';
+const femaleColor = 'bg-[#F5B8DB]';
 
 export default function FamilyNode({ node, profile }: Props) {
-  const borderColor = node.gender === 'male' ? maleColor : femaleColor;
+  const backgroundColor = node.gender === 'male' ? maleColor : femaleColor;
 
   return (
     <PersonNodeWrapper top={node.top} left={node.left}>
       <div
-        className={`grid grid-cols-[1fr_2fr] h-full p-1 bg-[#fffffe] border-2 rounded-xl ${borderColor}`}
+        className={`grid grid-cols-[1fr_2fr] h-full p-1 rounded-xl ${backgroundColor} border border-[#cccccc] shadow-lg`}
       >
         <div className="absolute top-0 left-[25px] text-xs">{node.id}</div>
-        <IoIosPerson className="w-full h-full text-[#cccccc]" />
+        <IoIosPerson className="w-full h-full text-gray-500 border-1 border-dashed border-black" />
         <div className="grid items-center text-xs font-bold leading-none">
           {profile.name}
         </div>
