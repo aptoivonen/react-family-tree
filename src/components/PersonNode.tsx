@@ -1,3 +1,4 @@
+import { IoIosPerson } from 'react-icons/io';
 import PersonNodeWrapper from './PersonNodeWrapper';
 import type { ExtNode, Profile } from '@/types';
 
@@ -15,10 +16,13 @@ export default function FamilyNode({ node, profile }: Props) {
   return (
     <PersonNodeWrapper top={node.top} left={node.left}>
       <div
-        className={`grid justify-items-center h-full bg-[#fffffe] border-2 rounded-xl ${borderColor}`}
+        className={`grid grid-cols-[1fr_2fr] h-full p-1 bg-[#fffffe] border-2 rounded-xl ${borderColor}`}
       >
-        <div className="text-xs">{node.id}</div>
-        <div className="text-xl font-bold">{profile.name}</div>
+        <div className="absolute top-0 left-[25px] text-xs">{node.id}</div>
+        <IoIosPerson className="w-full h-full text-[#cccccc]" />
+        <div className="grid items-center text-xs font-bold leading-none">
+          {profile.name}
+        </div>
       </div>
     </PersonNodeWrapper>
   );
