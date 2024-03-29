@@ -34,13 +34,13 @@ export default {
       fatherId: 'philip',
       motherId: 'elizabeth',
     },
-    camilla: {
-      gender: 'female',
-      name: 'Queen Camilla',
-    },
     diana: {
       gender: 'female',
       name: 'Princess Diana',
+    },
+    camilla: {
+      gender: 'female',
+      name: 'Queen Camilla',
     },
     william: {
       gender: 'male',
