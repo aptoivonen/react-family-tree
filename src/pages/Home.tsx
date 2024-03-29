@@ -1,19 +1,10 @@
-import type { Node, Profile } from '@/types';
-import exampleData1 from '@/data/example1';
+import exampleMap1 from '@/data/exampleMap1';
 import ReactFamilyTree from '@/components/ReactFamilyTree';
 import PersonNode from '@/components/PersonNode';
 import PinchZoomPan from '@/components/PinchZoomPan';
+import transformData from '@/utils/transformData';
 
-const nodeMap = exampleData1.persons as unknown as Record<
-  string,
-  Omit<Node & Profile, 'id'>
->;
-const nodes = Object.entries(nodeMap).map(([id, node]) => ({
-  id: String(id),
-  ...node,
-})) as unknown as Readonly<Node>[];
-
-const { rootId } = exampleData1;
+const { nodes, profileMap, rootId } = transformData(exampleMap1);
 
 function Home() {
   return (
@@ -25,7 +16,7 @@ function Home() {
           <PersonNode
             key={node.id}
             node={node}
-            profile={nodeMap[node.id]}
+            profile={profileMap[node.id]}
             isRoot={node.id === rootId}
           />
         )}
