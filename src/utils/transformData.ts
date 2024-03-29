@@ -1,4 +1,10 @@
-import type { Node, Profile, FamilyTreeData, PersonProfileMap } from '@/types';
+import type {
+  Node,
+  Profile,
+  FamilyTreeData,
+  PersonProfileMap,
+  SpouseRelationType,
+} from '@/types';
 
 type Data = {
   nodes: Readonly<Node>[];
@@ -48,7 +54,7 @@ export default function transformData(data: FamilyTreeData): Data {
         }),
         siblings: [] as { id: string; type: 'blood' }[],
         children: [] as { id: string; type: 'blood' }[],
-        spouses: [] as { id: string; type: 'married' | 'divorced' }[],
+        spouses: [] as { id: string; type: SpouseRelationType }[],
       },
     ])
   );

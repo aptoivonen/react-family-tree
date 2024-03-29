@@ -2,10 +2,13 @@ export type Profile = {
   name: string;
 };
 
+export type Gender = 'male' | 'female';
+export type SpouseRelationType = 'married' | 'divorced';
+
 export type PersonProfileMap = Record<
   string,
   {
-    gender: 'male' | 'female';
+    gender: Gender;
     fatherId?: string;
     motherId?: string;
   } & Profile
@@ -14,7 +17,7 @@ export type PersonProfileMap = Record<
 export type SpouseRelation = {
   id1: string;
   id2: string;
-  type: 'married' | 'divorced';
+  type: SpouseRelationType;
 };
 
 export type FamilyTreeData = {
