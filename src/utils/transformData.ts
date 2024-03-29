@@ -31,6 +31,7 @@ function getParents({
   }
   return parents;
 }
+
 export default function transformData(data: FamilyTreeData): Data {
   const personProfileMap = data.persons;
   const profileEntries = Object.entries(personProfileMap);
@@ -47,7 +48,7 @@ export default function transformData(data: FamilyTreeData): Data {
         }),
         siblings: [] as { id: string; type: 'blood' }[],
         children: [] as { id: string; type: 'blood' }[],
-        spouses: [] as { id: string; type: 'marriage' | 'divorced' }[],
+        spouses: [] as { id: string; type: 'married' | 'divorced' }[],
       },
     ])
   );
@@ -57,6 +58,18 @@ export default function transformData(data: FamilyTreeData): Data {
     node.parents.forEach((parentRel) => {
       const parentId = parentRel.id;
       nodeMap[parentId].children.push({ id, type: 'blood' });
+    });
+  });
+
+  const spousesList = data.spouses;
+  spousesList.forEach((spouseRelation) => {
+    nodeMap[spouseRelation.id1].spouses.push({
+      id: spouseRelation.id2,
+      type: spouseRelation.type,
+    });
+    nodeMap[spouseRelation.id2].spouses.push({
+      id: spouseRelation.id1,
+      type: spouseRelation.type,
     });
   });
 

@@ -27,5 +27,6 @@ export default {
       motherId: '3',
     },
   },
+  spouses: [{ id1: '2', id2: '3', type: 'married' }],
   rootId: '2',
 } as const;
