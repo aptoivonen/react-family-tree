@@ -1,0 +1,141 @@
+export default {
+  persons: {
+    elizabeth: {
+      gender: 'female',
+      name: 'Queen Elizabeth II',
+    },
+    philip: {
+      gender: 'male',
+      name: 'Prince Philip',
+    },
+    charles: {
+      gender: 'male',
+      name: 'King Charles III',
+      fatherId: 'philip',
+      motherId: 'elizabeth',
+    },
+    camilla: {
+      gender: 'female',
+      name: 'Queen Camilla',
+    },
+    diana: {
+      gender: 'female',
+      name: 'Princess Diana',
+    },
+    william: {
+      gender: 'male',
+      name: 'Prince William',
+      fatherId: 'charles',
+      motherId: 'diana',
+    },
+    harry: {
+      gender: 'male',
+      name: 'Prince Harry',
+      fatherId: 'charles',
+      motherId: 'diana',
+    },
+    kate: {
+      gender: 'female',
+      name: 'Kate Middleton',
+    },
+    meghan: {
+      gender: 'female',
+      name: 'Meghan Markle',
+    },
+    george: {
+      gender: 'male',
+      name: 'Prince George',
+      fatherId: 'william',
+      motherId: 'kate',
+    },
+    charlotte: {
+      gender: 'female',
+      name: 'Princess Charlotte',
+      fatherId: 'william',
+      motherId: 'kate',
+    },
+    louis: {
+      gender: 'male',
+      name: 'Prince Louis',
+      fatherId: 'william',
+      motherId: 'kate',
+    },
+    archie: {
+      gender: 'male',
+      name: 'Prince Archie',
+      fatherId: 'harry',
+      motherId: 'meghan',
+    },
+    lilibet: {
+      gender: 'female',
+      name: 'Princess Lilibet',
+      fatherId: 'harry',
+      motherId: 'meghan',
+    },
+    anne: {
+      gender: 'female',
+      name: 'Princess Anne',
+      fatherId: 'philip',
+      motherId: 'elizabeth',
+    },
+    andrew: {
+      gender: 'male',
+      name: 'Prince Andrew',
+      fatherId: 'philip',
+      motherId: 'elizabeth',
+    },
+    edward: {
+      gender: 'male',
+      name: 'Prince Edward',
+      fatherId: 'philip',
+      motherId: 'elizabeth',
+    },
+    mark: {
+      gender: 'male',
+      name: 'Mark Phillips',
+    },
+    timothy: {
+      gender: 'male',
+      name: 'Timothy Laurence',
+    },
+    peter: {
+      gender: 'male',
+      name: 'Peter Phillips',
+      fatherId: 'mark',
+      motherId: 'anne',
+    },
+    zara: {
+      gender: 'female',
+      name: 'Zara Tindall',
+      fatherId: 'mark',
+      motherId: 'anne',
+    },
+    sarah: {
+      gender: 'female',
+      name: 'Sarah',
+    },
+    beatrice: {
+      gender: 'female',
+      name: 'Princess Beatrice',
+      fatherId: 'andrew',
+      motherId: 'sarah',
+    },
+    eugenie: {
+      gender: 'female',
+      name: 'Princess Eugenie',
+      fatherId: 'andrew',
+      motherId: 'sarah',
+    },
+  },
+  spouses: [
+    { id1: 'elizabeth', id2: 'philip', type: 'married' },
+    { id1: 'charles', id2: 'diana', type: 'divorced' }, // divorced
+    { id1: 'charles', id2: 'camilla', type: 'married' },
+    { id1: 'william', id2: 'kate', type: 'married' },
+    { id1: 'harry', id2: 'meghan', type: 'married' },
+    { id1: 'mark', id2: 'anne', type: 'divorced' }, // divorced
+    { id1: 'timothy', id2: 'anne', type: 'married' },
+    { id1: 'andrew', id2: 'sarah', type: 'divorced' },
+  ],
+  rootId: 'charles',
+} as const;
