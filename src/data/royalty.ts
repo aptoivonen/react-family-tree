@@ -1,12 +1,32 @@
 export default {
   persons: {
+    andrewOfGreece: {
+      gender: 'male',
+      name: 'Prince Andrew of Greece',
+    },
+    alice: {
+      gender: 'female',
+      name: 'Princess Alice',
+    },
+    georgevi: {
+      gender: 'male',
+      name: 'King George VI',
+    },
+    queenmother: {
+      gender: 'female',
+      name: 'Queen Elizabeth',
+    },
     elizabeth: {
       gender: 'female',
       name: 'Queen Elizabeth II',
+      fatherId: 'georgevi',
+      motherId: 'queenmother',
     },
     philip: {
       gender: 'male',
       name: 'Prince Philip',
+      fatherId: 'andrewOfGreece',
+      motherId: 'alice',
     },
     charles: {
       gender: 'male',
@@ -126,16 +146,33 @@ export default {
       fatherId: 'andrew',
       motherId: 'sarah',
     },
+    sophie: {
+      gender: 'female',
+      name: 'Sophie',
+    },
+    louise: {
+      gender: 'female',
+      name: 'Louise Windsor',
+      fatherId: 'edward',
+      motherId: 'sophie',
+    },
+    james: {
+      gender: 'male',
+      name: 'James',
+      fatherId: 'edward',
+      motherId: 'sophie',
+    },
   },
   spouses: [
     { id1: 'elizabeth', id2: 'philip', type: 'married' },
-    { id1: 'charles', id2: 'diana', type: 'divorced' }, // divorced
+    { id1: 'charles', id2: 'diana', type: 'divorced' },
     { id1: 'charles', id2: 'camilla', type: 'married' },
     { id1: 'william', id2: 'kate', type: 'married' },
     { id1: 'harry', id2: 'meghan', type: 'married' },
-    { id1: 'mark', id2: 'anne', type: 'divorced' }, // divorced
+    { id1: 'mark', id2: 'anne', type: 'divorced' },
     { id1: 'timothy', id2: 'anne', type: 'married' },
     { id1: 'andrew', id2: 'sarah', type: 'divorced' },
+    { id1: 'edward', id2: 'sophie', type: 'married' },
   ],
   rootId: 'charles',
 } as const;
