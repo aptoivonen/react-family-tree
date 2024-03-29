@@ -1,10 +1,11 @@
 import { IoIosPerson } from 'react-icons/io';
 import { ImTree } from 'react-icons/im';
 import PersonNodeWrapper from './PersonNodeWrapper';
-import type { ExtNode, Profile } from '@/types';
+import type { Profile } from '@/types';
 
 type Props = {
-  node: ExtNode;
+  top: number;
+  left: number;
   profile: Profile;
   isRoot: boolean;
 };
@@ -12,11 +13,11 @@ type Props = {
 const maleColor = 'bg-[#9FD5EB]';
 const femaleColor = 'bg-[#F5B8DB]';
 
-export default function FamilyNode({ node, profile, isRoot }: Props) {
-  const backgroundColor = node.gender === 'male' ? maleColor : femaleColor;
+export default function PersonNode({ top, left, profile, isRoot }: Props) {
+  const backgroundColor = profile.gender === 'male' ? maleColor : femaleColor;
 
   return (
-    <PersonNodeWrapper top={node.top} left={node.left}>
+    <PersonNodeWrapper top={top} left={left}>
       <div
         className={`relative grid grid-cols-[1fr_2fr] gap-1 h-full p-1 rounded ${backgroundColor} border border-gray-300 shadow-lg`}
       >

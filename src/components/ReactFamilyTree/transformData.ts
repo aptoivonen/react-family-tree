@@ -85,7 +85,10 @@ export default function transformData(data: FamilyTreeData): Data {
   })) as unknown as Readonly<Node>[];
 
   const profileMap = Object.fromEntries(
-    profileEntries.map(([id, profile]) => [id, { name: profile.name }])
+    profileEntries.map(([id, profile]) => [
+      id,
+      { name: profile.name, gender: profile.gender },
+    ])
   );
 
   const { rootId } = data;
