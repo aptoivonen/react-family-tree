@@ -1,6 +1,6 @@
 import { NODE_HEIGHT, NODE_WIDTH } from '@/constants';
 
-const nodeGap = 'p-[20px]';
+const nodeGap = 'px-[20px] py-[40px]';
 
 type Props = {
   children: React.ReactNode;
