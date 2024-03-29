@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 import ReactFamilyTreeComp from 'react-family-tree';
 import transformData from './transformData';
 import type { ExtNode, FamilyTreeData, Profile } from '@/types';
-
 import { NODE_HEIGHT, NODE_WIDTH } from '@/constants';
 
 type Props = {
@@ -21,20 +20,24 @@ type Props = {
 };
 
 function ReactFamilyTree({ data, renderPerson }: Props) {
-  const treeData = useMemo(() => transformData(data), [data]);
+  // transform tree data from db format for the library
+  const { nodes, rootId, profileMap } = useMemo(
+    () => transformData(data),
+    [data]
+  );
 
   const renderNode = (node: ExtNode) =>
     renderPerson({
       id: node.id,
       top: node.top,
       left: node.left,
-      profile: data.persons[node.id],
+      profile: profileMap[node.id],
     });
 
   return (
     <ReactFamilyTreeComp
-      nodes={treeData.nodes}
-      rootId={treeData.rootId}
+      nodes={nodes}
+      rootId={rootId}
       width={NODE_WIDTH}
       height={NODE_HEIGHT}
       renderNode={renderNode}
