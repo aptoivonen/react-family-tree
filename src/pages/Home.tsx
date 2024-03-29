@@ -1,14 +1,14 @@
 import type { Node, Profile } from '@/types';
-import exampleData2 from '@/data/example1';
+import exampleData1 from '@/data/example1';
 import ReactFamilyTree from '@/components/ReactFamilyTree';
 import PersonNode from '@/components/PersonNode';
 import PinchZoomPan from '@/components/PinchZoomPan';
 
-const nodeMap = exampleData2 as unknown as Record<
+const nodeMap = exampleData1 as unknown as Record<
   string,
   Omit<Node & Profile, 'id'>
 >;
-const nodes = Object.entries(exampleData2).map(([id, node]) => ({
+const nodes = Object.entries(exampleData1).map(([id, node]) => ({
   id: String(id),
   ...node,
 })) as unknown as Readonly<Node>[];
