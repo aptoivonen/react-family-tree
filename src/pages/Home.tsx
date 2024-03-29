@@ -4,16 +4,16 @@ import ReactFamilyTree from '@/components/ReactFamilyTree';
 import PersonNode from '@/components/PersonNode';
 import PinchZoomPan from '@/components/PinchZoomPan';
 
-const nodeMap = exampleData1 as unknown as Record<
+const nodeMap = exampleData1.persons as unknown as Record<
   string,
   Omit<Node & Profile, 'id'>
 >;
-const nodes = Object.entries(exampleData1).map(([id, node]) => ({
+const nodes = Object.entries(nodeMap).map(([id, node]) => ({
   id: String(id),
   ...node,
 })) as unknown as Readonly<Node>[];
 
-const rootId = nodes[0].id;
+const { rootId } = exampleData1;
 
 function Home() {
   return (
@@ -22,7 +22,12 @@ function Home() {
         nodes={nodes}
         rootId={rootId}
         renderNode={(node) => (
-          <PersonNode key={node.id} node={node} profile={nodeMap[node.id]} />
+          <PersonNode
+            key={node.id}
+            node={node}
+            profile={nodeMap[node.id]}
+            isRoot={node.id === rootId}
+          />
         )}
       />
     </PinchZoomPan>
